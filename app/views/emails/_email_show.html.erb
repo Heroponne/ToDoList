@@ -2,7 +2,7 @@
 <p><%= email.body %></p>
 <div class="row">
 	<div class="col">
-		<button class="btn btn-danger btn-sm">Supprimer</button>
+		<%= link_to "Supprimer", email_path(email.id), method: "delete", class: "btn btn-danger btn-sm", remote: true %>
 	</div>
 	<div class="col">
 		<button class="btn btn-success btn-sm">Marquer comme non-lu</button>
