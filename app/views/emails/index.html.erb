@@ -1,0 +1,28 @@
+<h1 class="ml-4">Liste des emails</h1>
+<br>
+<%= form_tag(emails_path, method: "post", class: "form", id: "emails-form", remote: true)  do %>
+  <div class="ml-4">
+    <%= submit_tag("Recevoir un email", class: "btn btn-start-order") %>
+  </div>
+<%end%>
+<br><br>
+<div class="container">
+	<div class="col-10">
+		<table class="table">
+		  <thead class="thead-light">
+		    <tr>
+		      <th scope="col">Objet</th>
+		      <th scope="col">Email sélectionné</th>
+		    </tr>
+		  </thead>
+		  <tbody id="emails-list">
+		  	<% @emails.each do |email| %>
+			    <tr>
+			      <td><%= link_to email.object, email_path(email.id), remote: true %></td>
+			      <td id="email-body-<%= email.id%>"></td>
+			    </tr>
+		    <% end %>
+		  </tbody>
+		</table>		
+	</div>
+</div>
